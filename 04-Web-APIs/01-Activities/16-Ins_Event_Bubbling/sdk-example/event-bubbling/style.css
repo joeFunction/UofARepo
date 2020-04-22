@@ -1,0 +1,19 @@
+.outer-div {
+    background-color: blue;
+    color: white;
+    padding: 100px;
+}
+
+.inner-div {
+    background-color: lightblue;
+    color: black;
+    padding: 100px;
+    margin: 20px;
+}
+
+.button {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin: 100px;
+}
