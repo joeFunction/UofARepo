@@ -1,0 +1,40 @@
+/* CSS Styles (These styles are provided to you. Don't touch these!) */
+  body {
+    background: url(./fridge.png) no-repeat;
+  }
+
+  .letter {
+    width: 30px;
+    height: 30px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+  }
+
+  .letter-button-color {
+    color: darkcyan;
+  }
+
+  .fridge-color {
+    color: orange;
+  }
+
+  #display {
+    margin-top: 78px;
+    height: 500px;
+    width: 220px;
+    margin-left: 60px;
+  }
+
+  #buttons {
+    padding-top: 60px;
+  }
+
+  #clear {
+    margin-left: 20px;
+    font-size: 25px;
+    color: black;
+    border-style: solid;
+    width: 100px;
+  }

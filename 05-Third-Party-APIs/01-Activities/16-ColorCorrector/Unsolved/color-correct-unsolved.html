@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Correct Color Picker</title>
+
+  <!-- Bootstrap File -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+  <!-- JQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="./script.js"></script>
+
+</head>
+<body>
+
+  <div class="container">
+    <h2>Correct Color Picker</h2>
+    <p>Pick the <b>color</b> of the word shown from the list below it.</p>
+
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">
+
+          <!-- Create random target color -->
+          <span id="rand-target-color">
+          </span>
+
+        </h3>
+      </div>
+      <div class="card-body">
+
+        <!-- Create colors to pick -->
+        <ul class="list-unstyled" id="color-picker">
+        </ul>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
