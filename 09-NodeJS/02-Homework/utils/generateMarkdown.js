@@ -1,6 +1,7 @@
 function generateMarkdown(data) {
   return `
-# ${data.title}
+# the title is ${data.title}
+license is ${data.license}
 
 `;
 }
