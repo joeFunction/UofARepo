@@ -1,4 +1,4 @@
-const Algo = require("../algo");
+const Algo = require("../Algo");
 
 describe("Algo", () => {
   describe("reverse", () => {
@@ -6,10 +6,10 @@ describe("Algo", () => {
   });
 
   describe("isPalindrome", () => {
-   
+
   });
 
   describe("capitalize", () => {
-    
+
   });
 });

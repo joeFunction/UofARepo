@@ -24,6 +24,8 @@ describe("Todo", () => {
 
       // Assert
       expect(cb).toThrowError(err);
+
+      // expect(() => new Todo()).toThrowError(new Error("Expected parameter 'text' to be a non empty string"));
     });
   });
 });

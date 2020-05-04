@@ -1,5 +1,5 @@
-const Child = require("./child");
-const DayCare = require("./dayCare");
+const Child = require("./Child");
+const DayCare = require("./DayCare");
 
 const child1 = new Child("Tammer", 3);
 const child2 = new Child("Alec", 1);

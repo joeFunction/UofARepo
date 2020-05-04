@@ -1,5 +1,5 @@
 const axios = require("axios");
-const MovieSearch = require("../movieSearch");
+const MovieSearch = require("../MovieSearch");
 
 jest.mock("axios");
 
@@ -21,13 +21,13 @@ describe("MovieSearch", () => {
       const name = "Rocky";
 
       axios.get.mockReturnValue(
-        new Promise(function(resolve) {
-          resolve({ data: {} });
+        new Promise((resolve) => {
+          resolve({ data: { Title: "Rocky" } });
         })
       );
 
-      expect(movie.search(name)).resolves.toEqual({ data: {} });
-      expect(axios.get).lastCalledWith(movie.buildUrl(name));
+      expect(movie.search(name)).resolves.toEqual({ data: { Title: "Rocky" } });
+      expect(axios.get).toHaveBeenLastCalledWith(movie.buildUrl(name));
     });
   });
 });

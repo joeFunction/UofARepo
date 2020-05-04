@@ -1,14 +1,16 @@
 const fs = require("fs");
 
-function FileIO() {}
+class FileIO {
+  constructor() { };
 
-FileIO.prototype.read = function(file) {
-  return fs.readFileSync(file, "utf8");
-};
+  read(file) {
+    return fs.readFileSync(file, "utf8");
+  };
 
-FileIO.prototype.write = function(path, data) {
-  return fs.writeFileSync(path, data);
-};
+  write(path, data) {
+    return fs.writeFileSync(path, data);
+  };
+}
 
 module.exports = FileIO;
 

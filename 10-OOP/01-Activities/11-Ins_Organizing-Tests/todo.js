@@ -1,9 +1,11 @@
-function Todo(text) {
-  if (typeof text !== "string" || !text.trim().length) {
-    throw new Error("Expected parameter 'text' to be a non empty string");
-  }
+class Todo {
+  constructor(text) {
+    if (typeof text !== "string" || !text.trim().length) {
+      throw new Error("Expected parameter 'text' to be a non empty string");
+    }
 
-  this.text = text;
+    this.text = text;
+  }
 }
 
 module.exports = Todo;

@@ -1,4 +1,4 @@
-const FileIO = require("./fileIO");
+const FileIO = require("./FileIO");
 
 const fileIO = new FileIO();
 

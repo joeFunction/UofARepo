@@ -1,5 +1,5 @@
-const TodoList = require("../todoList");
-const Todo = require("../todo");
+const TodoList = require("../TodoList");
+const Todo = require("../Todo");
 
 describe("TodoList", () => {
   describe("Initialization", () => {
@@ -25,7 +25,8 @@ describe("TodoList", () => {
 
       // Assert
       expect(todoList.todos.length).toEqual(1);
-      expect(todoList.todos[0] instanceof Todo).toEqual(true);
+      // expect(todoList.todos[0] instanceof Todo).toEqual(true);
+      expect(todoList.todos[0]).toBeInstanceOf(Todo);
       expect(todoList.todos[0].text).toEqual(todoText);
     });
 

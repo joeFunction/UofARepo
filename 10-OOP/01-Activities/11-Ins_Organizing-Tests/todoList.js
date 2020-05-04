@@ -1,19 +1,21 @@
-const Todo = require("./todo");
+const Todo = require("./Todo");
 
-function TodoList() {
-  this.todos = [];
+class TodoList {
+  constructor() {
+    this.todos = [];
+  };
+
+  addTodo(text) {
+    this.todos.push(new Todo(text));
+  };
+
+  getNextTodo() {
+    return this.todos[0];
+  };
+
+  completeNextTodo() {
+    return this.todos.shift();
+  };
 }
-
-TodoList.prototype.addTodo = function(text) {
-  this.todos.push(new Todo(text));
-};
-
-TodoList.prototype.getNextTodo = function() {
-  return this.todos[0];
-};
-
-TodoList.prototype.completeNextTodo = function() {
-  return this.todos.shift();
-};
 
 module.exports = TodoList;

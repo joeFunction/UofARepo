@@ -1,9 +1,11 @@
-function Algo() {}
+class Algo {
+    constructor() { };
 
-Algo.prototype.reverse = function(str) {};
+    reverse(str) { };
 
-Algo.prototype.isPalindrome = function(str) {};
+    isPalindrome(str) { };
 
-Algo.prototype.capitalize = function(str) {};
+    capitalize(str) { };
+}
 
 module.exports = Algo;

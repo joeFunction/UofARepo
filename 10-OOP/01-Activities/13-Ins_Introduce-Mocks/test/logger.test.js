@@ -1,31 +1,16 @@
-const Logger = require("../logger");
+const Logger = require("../Logger");
 
 const colors = {
-  black: "\x1b[30m",
   red: "\x1b[31m",
   green: "\x1b[32m",
   yellow: "\x1b[33m",
   blue: "\x1b[34m",
   magenta: "\x1b[35m",
   cyan: "\x1b[36m",
-  white: "\x1b[37m"
 };
 
 describe("Logger", () => {
   describe("colors", () => {
-    it("should print in black", () => {
-      const log = new Logger();
-      const message = "Hello world!";
-      const mock = jest.spyOn(console, "log");
-      mock.mockImplementation(() => {});
-
-      log.black(message);
-
-      expect(mock).toBeCalledWith(colors.black, message);
-
-      mock.mockRestore();
-    });
-
     it("should print in red", () => {
       const log = new Logger();
       const message = "Hello world!";
@@ -34,7 +19,7 @@ describe("Logger", () => {
 
       log.red(message);
 
-      expect(mock).toBeCalledWith(colors.red, message);
+      expect(mock).toHaveBeenCalledWith(colors.red, message);
 
       mock.mockRestore();
     });
@@ -47,7 +32,7 @@ describe("Logger", () => {
 
       log.green(message);
 
-      expect(mock).toBeCalledWith(colors.green, message);
+      expect(mock).toHaveBeenCalledWith(colors.green, message);
 
       mock.mockRestore();
     });
@@ -60,7 +45,7 @@ describe("Logger", () => {
 
       log.yellow(message);
 
-      expect(mock).toBeCalledWith(colors.yellow, message);
+      expect(mock).toHaveBeenCalledWith(colors.yellow, message);
 
       mock.mockRestore();
     });
@@ -73,7 +58,7 @@ describe("Logger", () => {
 
       log.blue(message);
 
-      expect(mock).toBeCalledWith(colors.blue, message);
+      expect(mock).toHaveBeenCalledWith(colors.blue, message);
 
       mock.mockRestore();
     });
@@ -86,7 +71,7 @@ describe("Logger", () => {
 
       log.magenta(message);
 
-      expect(mock).toBeCalledWith(colors.magenta, message);
+      expect(mock).toHaveBeenCalledWith(colors.magenta, message);
 
       mock.mockRestore();
     });
@@ -99,20 +84,7 @@ describe("Logger", () => {
 
       log.cyan(message);
 
-      expect(mock).toBeCalledWith(colors.cyan, message);
-
-      mock.mockRestore();
-    });
-
-    it("should print in white", () => {
-      const log = new Logger();
-      const message = "Hello world!";
-      const mock = jest.spyOn(console, "log");
-      mock.mockImplementation(() => {});
-
-      log.white(message);
-
-      expect(mock).toBeCalledWith(colors.white, message);
+      expect(mock).toHaveBeenCalledWith(colors.cyan, message);
 
       mock.mockRestore();
     });
