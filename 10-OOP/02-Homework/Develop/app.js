@@ -18,106 +18,139 @@ let team = []
 inquirer
   .prompt([
     {
-      type:"input",
-      name:"name",
-      message:"Please type the manager name"
+      type: "input",
+      name: "name",
+      message: "Please type the manager name"
     },
     {
-      type:"input",
-      name:"id",
-      message:"Please type the manager id"
-    },  {
-      type:"input",
-      name:"email",
-      message:"Please type the manager email"
-    },  {
-      type:"input",
-      name:"officenumber",
-      message:"Please type the manager office"
+      type: "input",
+      name: "id",
+      message: "Please type the manager id"
+    }, {
+      type: "input",
+      name: "email",
+      message: "Please type the manager email"
+    }, {
+      type: "input",
+      name: "officenumber",
+      message: "Please type the manager office"
     },
     /* Pass your questions in here */
   ])
   .then(answers => {
     console.log(answers)
-    team.push(new Manager(answers.name,answers.id,answers.email, answers.officenumber))
+    team.push(new Manager(answers.name, answers.id, answers.email, answers.officenumber))
     console.log(team)
     menu()
   })
   .catch(error => {
-    if(error.isTtyError) {
+    if (error.isError) {
       // Prompt couldn't be rendered in the current environment
     } else {
-      // Something else when wrong
+      console.log('Error') // Something else when wrong
     }
   });
 
 
-function menu(){
-  console.log(" I am inside the menu")
+function menu() {
   inquirer
-  .prompt([
-    {
-      type:"list",
-      name:"choice",
-      message:"what do you want?",
-      choices:["Intern", "Engineer", "buildHTML"]
-    },
-    /* Pass your questions in here */
-  ])
-  .then(answers => {
-    console.log(answers)
-if (answers.choice === "Intern"){
-  menuIntern()
-  // you go to other inquirer asking for the data for the Int
+    .prompt([
+      {
+        type: "list",
+        name: "choice",
+        message: 'Select a title.',
+        choices: ["Intern", "Engineer", "buildHTML"]
+      },
+      /* Pass your questions in here */
+    ])
+    .then(answers => {
+      console.log(answers)
+      if (answers.choice === "Intern") {
+        menuIntern()
+        // you go to other inquirer asking for the data for the Int
 
-}else if(answers.choice === "Engineer"){
+      } else if (answers.choice === "Engineer") {
+        menuEngineer()
+        // you go to other inquierer asiking for the data for the Eng
+      } else {
 
-// you go to other inquierer asiking for the data for the Eng
-}else{
+        console.log(team)
+        let html = render(team)
+        fs.writeFileSync("teamtest.html", render(team), "utf-8")
+        console.log(html)
+        /// you will create the html
 
-  console.log(team)
-  let html = render(team)
-  fs.writeFileSync("teamtest.html", render(team), "utf-8")
-  console.log(html)
-/// you will create the html
+      }
+
+
+    })
 
 }
 
-   
-  })
+
+function menuIntern() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Please type the Intern name"
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Please type the Intern id"
+      }, {
+        type: "input",
+        name: "email",
+        message: "Please type the Intern email"
+      }, {
+        type: "input",
+        name: "school",
+        message: "Please type the Intern school "
+      },
+      /* Pass your questions in here */
+    ])
+    .then(answers => {
+      console.log(answers)
+      team.push(new Intern(answers.name, answers.id, answers.email, answers.school))
+      console.log(team)
+      menu()
+    })
 
 }
 
-
-function menuIntern(){
+function menuEngineer() {
   inquirer
-  .prompt([
-    {
-      type:"input",
-      name:"name",
-      message:"Please type the intern name"
-    },
-    {
-      type:"input",
-      name:"id",
-      message:"Please type the intern id"
-    },  {
-      type:"input",
-      name:"email",
-      message:"Please type the intern email"
-    },  {
-      type:"input",
-      name:"school",
-      message:"Please type the intern school "
-    },
-    /* Pass your questions in here */
-  ])
-  .then(answers => {
-    console.log(answers)
-    team.push(new Intern(answers.name,answers.id,answers.email, answers.school))
-    console.log(team)
-    menu()
-  })
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        message: "Please type the Engineer name"
+      },
+      {
+        type: "input",
+        name: "id",
+        message: "Please type the Engineer id"
+      },
+      {
+        type: "input",
+        name: "email",
+        message: "Please type the Engineer email"
+      },
+      {
+        type: "input",
+        name: "GitHub",
+        message: "Please type the Engineers' GitHub username "
+      },
+      /* Pass your questions in here */
+    ])
+    .then(answers => {
+      console.log(answers)
+      team.push(new Engineer(answers.name, answers.id, answers.email, answers.school))
+      console.log(team)
+      menu()
+    })
 
 }
 
