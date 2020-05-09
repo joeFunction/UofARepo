@@ -10,9 +10,116 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
+let team = []
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+
+inquirer
+  .prompt([
+    {
+      type:"input",
+      name:"name",
+      message:"Please type the manager name"
+    },
+    {
+      type:"input",
+      name:"id",
+      message:"Please type the manager id"
+    },  {
+      type:"input",
+      name:"email",
+      message:"Please type the manager email"
+    },  {
+      type:"input",
+      name:"officenumber",
+      message:"Please type the manager office"
+    },
+    /* Pass your questions in here */
+  ])
+  .then(answers => {
+    console.log(answers)
+    team.push(new Manager(answers.name,answers.id,answers.email, answers.officenumber))
+    console.log(team)
+    menu()
+  })
+  .catch(error => {
+    if(error.isTtyError) {
+      // Prompt couldn't be rendered in the current environment
+    } else {
+      // Something else when wrong
+    }
+  });
+
+
+function menu(){
+  console.log(" I am inside the menu")
+  inquirer
+  .prompt([
+    {
+      type:"list",
+      name:"choice",
+      message:"what do you want?",
+      choices:["Intern", "Engineer", "buildHTML"]
+    },
+    /* Pass your questions in here */
+  ])
+  .then(answers => {
+    console.log(answers)
+if (answers.choice === "Intern"){
+  menuIntern()
+  // you go to other inquirer asking for the data for the Int
+
+}else if(answers.choice === "Engineer"){
+
+// you go to other inquierer asiking for the data for the Eng
+}else{
+
+  console.log(team)
+  let html = render(team)
+  fs.writeFileSync("teamtest.html", render(team), "utf-8")
+  console.log(html)
+/// you will create the html
+
+}
+
+   
+  })
+
+}
+
+
+function menuIntern(){
+  inquirer
+  .prompt([
+    {
+      type:"input",
+      name:"name",
+      message:"Please type the intern name"
+    },
+    {
+      type:"input",
+      name:"id",
+      message:"Please type the intern id"
+    },  {
+      type:"input",
+      name:"email",
+      message:"Please type the intern email"
+    },  {
+      type:"input",
+      name:"school",
+      message:"Please type the intern school "
+    },
+    /* Pass your questions in here */
+  ])
+  .then(answers => {
+    console.log(answers)
+    team.push(new Intern(answers.name,answers.id,answers.email, answers.school))
+    console.log(team)
+    menu()
+  })
+
+}
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
