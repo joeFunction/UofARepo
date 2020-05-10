@@ -6,7 +6,6 @@ const templatesDir = path.resolve(__dirname, "../templates");
 const render = employees => {
   const html = [];
 
-
   html.push(employees
     .filter(employee => employee.getRole() === "Manager")
     .map(manager => renderManager(manager))
@@ -65,4 +64,3 @@ const replacePlaceholders = (template, placeholder, value) => {
 };
 
 module.exports = render;
-
