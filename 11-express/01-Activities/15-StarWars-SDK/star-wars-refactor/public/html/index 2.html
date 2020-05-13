@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Wars</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="./js/index.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Star Wars</h1>
+            <h3>The greatest resource in the galaxy for Star Wars statistics!</h3>
+            <hr>
+            <a href="/add"><button class="btn btn-danger btn-lg"><span class="fa fa-plus"></span> Add New
+                    Character</button></a>
+            <a href="/api/characters"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> All
+                    Characters</button></a>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h3><strong>Character Search</strong></h3>
+                    </div>
+
+                    <div class="card-body">
+                        <input type="text" id="character-search" class="form-control">
+                        <br>
+                        <div class="text-right">
+                            <button type="submit" class="btn btn-primary btn-md" id="search-btn"><span
+                                    class="fa fa-search"></span> Search</button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h3><strong>Character Statistics</strong></h3>
+                        </div>
+                        <div class="card-body">
+                            <h2 id="name">Obi-Wan Kenobi</h2>
+                            <div id="stats">
+                                <h3><strong>Role:</strong> <span id="role">Jedi Master</span></h3>
+                                <h3><strong>Age:</strong> <span id="age">40</span></h3>
+                                <h3><strong>Affiliation:</strong> <span id="affiliation">Jedi Order</span></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
