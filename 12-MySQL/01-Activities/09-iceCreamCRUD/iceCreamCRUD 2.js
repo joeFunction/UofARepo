@@ -1,5 +1,5 @@
 var mysql = require("mysql");
-// connection declaration
+
 var connection = mysql.createConnection({
   host: "localhost",
 
@@ -13,7 +13,7 @@ var connection = mysql.createConnection({
   password: "",
   database: "ice_creamDB"
 });
-//Opening connection 
+
 connection.connect(function(err) {
   if (err) throw err;
   console.log("connected as id " + connection.threadId + "\n");
@@ -44,13 +44,13 @@ function createProduct() {
 function updateProduct() {
   console.log("Updating all Rocky Road quantities...\n");
   var query = connection.query(
-    "UPDATE employee SET ? WHERE ?",
+    "UPDATE products SET ? WHERE ?",
     [
       {
-        role_id: answer.role_id
+        quantity: 100
       },
       {
-        id: answer.emp_id
+        flavor: "Rocky Road"
       }
     ],
     function(err, res) {
