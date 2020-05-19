@@ -11,8 +11,8 @@
 * With all of your data successfully imported into the database, begin working on a Node console application which will allow you to collect more specialized pieces of data. For example...
 
   * A query which returns all data for songs sung by a specific artist
-  * A query which searches for a specific song in the top 5000 and returns the data for it
-  * A query which returns all data contained within a specific range
   * A query which returns all artists who appear within the top 5000 more than once
+  * A query which returns all data contained within a specific range
+  * A query which searches for a specific song in the top 5000 and returns the data for it
 
 * HINT: There are some MySQL queries which could make some of these tasks even easier to accomplish. Feel free to look at MySQL's documentation to find some of them.
