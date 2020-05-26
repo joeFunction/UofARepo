@@ -1,6 +1,8 @@
-INSERT INTO cats (name) VALUES ('Meeses');
-INSERT INTO cats (name) VALUES ('Bobbi');
-INSERT INTO cats (name, sleepy) VALUES ('Sylvester', true);
-INSERT INTO cats (name, sleepy) VALUES ('Marilyn Manson', true);
-INSERT INTO cats (name, sleepy) VALUES ('Joe Biden', true);
-INSERT INTO cats (name) VALUES ('Owens');
+USE cats_db;
+
+INSERT INTO cat (name) VALUES ('Meeses');
+INSERT INTO cat (name) VALUES ('Bobbi');
+INSERT INTO cat (name, sleepy) VALUES ('Sam', true);
+INSERT INTO cat (name, sleepy) VALUES ('Missy', true);
+INSERT INTO cat (name, sleepy) VALUES ('Coco', true);
+INSERT INTO cat (name) VALUES ('Owens');

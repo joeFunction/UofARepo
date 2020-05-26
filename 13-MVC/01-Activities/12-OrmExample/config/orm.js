@@ -1,4 +1,4 @@
-var connection = require("./connection.js");
+const connection = require("./connection.js");
 
 // Object Relational Mapper (ORM)
 
@@ -6,34 +6,44 @@ var connection = require("./connection.js");
 // The ? signs are for swapping out other values
 // These help avoid SQL injection
 // https://en.wikipedia.org/wiki/SQL_injection
-var orm = {
-  selectWhere: function(tableInput, colToSearch, valOfCol) {
-    var queryString = "SELECT * FROM ?? WHERE ?? = ?";
-    connection.query(queryString, [tableInput, colToSearch, valOfCol], function(err, result) {
-      if (err) throw err;
-      console.log(result);
-    });
-  },
-  selectAndOrder: function(whatToSelect, table, orderCol) {
-    var queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
-    console.log(queryString);
-    connection.query(queryString, [whatToSelect, table, orderCol], function(err, result) {
-      if (err) throw err;
-      console.log(result);
-    });
-  },
-  findWhoHasMost: function(tableOneCol, tableTwoForeignKey, tableOne, tableTwo) {
-    var queryString =
-      "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
+const orm = {
+  selectWhere: async (tableInput, colToSearch, valOfCol) => {
+    try {
+      const queryString = "SELECT * FROM ?? WHERE ?? = ?";
 
-    connection.query(
-      queryString,
-      [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol],
-      function(err, result) {
-        if (err) throw err;
-        console.log(result);
-      }
-    );
+      const result = await connection.query(queryString, [tableInput, colToSearch, valOfCol]);
+
+      console.log(result);
+
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  selectAndOrder: async (whatToSelect, table, orderCol) => {
+    try {
+      const queryString = "SELECT ?? FROM ?? ORDER BY ?? DESC";
+
+      const result = await connection.query(queryString, [whatToSelect, table, orderCol]);
+
+      console.log(result);
+
+    } catch (error) {
+      throw error;
+    }
+  },
+
+  findWhoHasMost: async (tableOneCol, tableTwoForeignKey, tableOne, tableTwo) => {
+    try {
+      const queryString = "SELECT ??, COUNT(??) AS count FROM ?? LEFT JOIN ?? ON ??.??= ??.id GROUP BY ?? ORDER BY count DESC LIMIT 1";
+
+      const result = await connection.query(queryString, [tableOneCol, tableOneCol, tableOne, tableTwo, tableTwo, tableTwoForeignKey, tableOne, tableOneCol]);
+
+      console.log(result);
+
+    } catch (error) {
+      throw error;
+    }
   }
 };
 

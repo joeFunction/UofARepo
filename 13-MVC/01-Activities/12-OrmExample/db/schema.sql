@@ -1,21 +1,22 @@
-### Schema
+-- ### Schema
+DROP DATABASE IF EXISTS pets_db;
 CREATE DATABASE pets_db;
 USE pets_db;
 
-CREATE TABLE buyers
+CREATE TABLE buyer
 (
-	id int NOT NULL AUTO_INCREMENT,
-	buyer_name varchar(255) NOT NULL,
+	id INTEGER AUTO_INCREMENT NOT NULL,
+	buyer_name VARCHAR(255) NOT NULL,
 	PRIMARY KEY (id)
 );
 
-CREATE TABLE pets
+CREATE TABLE pet
 (
-	id int NOT NULL AUTO_INCREMENT,
-	animal_breed varchar(255) NOT NULL,
-	animal_name varchar(255) NOT NULL,
-	price int NOT NULL,
-	buyer_id int NOT NULL,
+	id INTEGER AUTO_INCREMENT NOT NULL,
+	animal_breed VARCHAR(255) NOT NULL,
+	animal_name VARCHAR(255) NOT NULL,
+	price INTEGER NOT NULL,
+	buyer_id INTEGER NOT NULL,
 	PRIMARY KEY (id),
-	FOREIGN KEY (buyer_id) REFERENCES buyers(id)
+	FOREIGN KEY (buyer_id) REFERENCES buyer(id)
 );
