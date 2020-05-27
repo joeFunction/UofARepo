@@ -7,6 +7,19 @@ const connection = require("./connection.js");
 // These help avoid SQL injection
 // https://en.wikipedia.org/wiki/SQL_injection
 const orm = {
+  select: async (tableInput, colToSearch, valOfCol) => {
+    try {
+      const queryString = "SELECT * FROM ??";
+
+      const result = await connection.query(queryString, tableInput);
+
+      console.log(result);
+
+    } catch (error) {
+      throw error;
+    }
+  },
+
   selectWhere: async (tableInput, colToSearch, valOfCol) => {
     try {
       const queryString = "SELECT * FROM ?? WHERE ?? = ?";
