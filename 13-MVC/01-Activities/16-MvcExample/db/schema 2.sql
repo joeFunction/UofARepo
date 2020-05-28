@@ -1,0 +1,12 @@
+### Schema
+
+CREATE DATABASE cats_db;
+USE cats_db;
+
+CREATE TABLE cat
+(
+	id INTEGER AUTO_INCREMENT NOT NULL,
+	name VARCHAR(255) NOT NULL,
+	sleepy BOOLEAN DEFAULT false,
+	PRIMARY KEY (id)
+);
