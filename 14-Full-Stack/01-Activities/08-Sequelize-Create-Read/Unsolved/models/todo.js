@@ -1,7 +1,18 @@
-module.exports = function(sequelize, DataTypes) {
-  var Todo = sequelize.define("Todo", {
-    text: DataTypes.STRING,
-    complete: DataTypes.BOOLEAN
-  });
-  return Todo;
+module.exports = (sequelize, DataTypes) => {
+    const Todo = sequelize.define("todo",
+        {
+            text: {
+                type: DataTypes.STRING
+            },
+            complete: {
+                type: DataTypes.BOOLEAN
+            }
+        },
+        {
+            freezeTableName: true,
+            timestamps: false
+        }
+    );
+
+    return Todo;
 };

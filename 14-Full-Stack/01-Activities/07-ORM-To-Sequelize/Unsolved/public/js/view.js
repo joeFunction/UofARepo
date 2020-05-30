@@ -77,7 +77,7 @@ $(document).ready(function() {
   function updateTodo(todo) {
     $.ajax({
       method: "PUT",
-      url: "/api/todos",
+      url: "/api/todos/" + todo.id,
       data: todo
     }).then(getTodos);
   }

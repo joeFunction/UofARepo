@@ -36,7 +36,7 @@ module.exports = function(app) {
   });
 
   // PUT route for updating todos. We can access the updated todo in req.body
-  app.put("/api/todos", function(req, res) {
+  app.put("/api/todos/:id", function(req, res) {
     orm.editTodo(req.body, function(results) {
       res.json(results);
     });
