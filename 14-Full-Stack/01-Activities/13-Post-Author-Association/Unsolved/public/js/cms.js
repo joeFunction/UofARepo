@@ -42,7 +42,7 @@ $(document).ready(function() {
       body: bodyInput
         .val()
         .trim(),
-      AuthorId: authorSelect.val()
+      author_id: authorSelect.val()
     };
 
     // If we're updating a post run updatePost to update a post
@@ -124,7 +124,7 @@ $(document).ready(function() {
   function updatePost(post) {
     $.ajax({
       method: "PUT",
-      url: "/api/posts",
+      url: "/api/posts/" + post.id,
       data: post
     })
       .then(function() {

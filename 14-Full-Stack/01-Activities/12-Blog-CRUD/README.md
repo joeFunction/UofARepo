@@ -8,7 +8,7 @@
 
   2) Open the `config` folder and update the `config.json` file's `development` object to match your own local MySQL database.
 
-  3) Navigate to the `api-routes.js` file inside of the `routes` folder.
+  3) Navigate to the `post-controller.js` file inside of the `controllers` folder.
 
   4) Fill in each route with the code described in the comments to add each CRUD action.
 
