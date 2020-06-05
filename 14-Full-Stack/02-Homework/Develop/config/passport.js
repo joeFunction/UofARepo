@@ -1,7 +1,7 @@
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 
-var db = require("../models");
+var db = require("../models"); //parent directory
 
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
@@ -47,3 +47,4 @@ passport.deserializeUser(function(obj, cb) {
 
 // Exporting our configured passport
 module.exports = passport;
+// require file, you;ll get from passports

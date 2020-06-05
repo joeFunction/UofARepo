@@ -6,6 +6,7 @@ module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
+  // post is same as use
   app.post("/api/login", passport.authenticate("local"), function(req, res) {
     res.json(req.user);
   });
@@ -26,7 +27,7 @@ module.exports = function(app) {
       });
   });
 
-  // Route for logging user out
+  // Route for logging user out  //series of steps to data
   app.get("/logout", function(req, res) {
     req.logout();
     res.redirect("/");
