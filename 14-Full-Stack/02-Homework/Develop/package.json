@@ -2,10 +2,10 @@
   "name": "1-Passport-Example",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js", // specify all packages, tell node what file to run when start
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js", //
+    "start": "node server.js",
     "watch": "nodemon server.js"
   },
   "keywords": [],
@@ -21,4 +21,3 @@
     "sequelize": "^5.8.6"
   }
 }
-// meta data, description

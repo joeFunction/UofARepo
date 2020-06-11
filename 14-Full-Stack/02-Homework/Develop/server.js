@@ -1,16 +1,16 @@
 // Requiring necessary npm packages
-var express = require("express"); // assignment
+var express = require("express");
 var session = require("express-session");
 // Requiring passport as we've configured it
 var passport = require("./config/passport");
 
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080; // 
+var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
-// Creating express app and configuring middleware(function) needed for authentication, define a sequence of functions with data received
-var app = express(); // creating instance express and storing
-app.use(express.urlencoded({ extended: true })); //returns a function //middlew config
+// Creating express app and configuring middleware needed for authentication
+var app = express();
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
@@ -28,5 +28,3 @@ db.sequelize.sync().then(function() {
     console.log("==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.", PORT, PORT);
   });
 });
-
-//
