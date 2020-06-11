@@ -1,47 +1,27 @@
-// handlebars 
-
-burger page: 'table-order'=varible, box = table number header id, below table number will be burger
-
-name: display all table orders/food order, in handlerbars
-
-'check-out' button, received order
-
-'view' = food they ordered
-
-button take to same formatted page but meanings 
-
-burger within a burger 
-
-table food order 
-
-cash out or not 
-
-
-
 # Project 2
 
 ## Application Requirements
-//figure out plug ins 
+
 * Must use a Node and Express server
-// app.js import npm express//
+
 * Must use Handlebars.js as the template engine
-// included
+
 * Must be backed by a MySQL database with a Sequelize ORM
-// included 
+
 * Must utilize both GET and POST routes for retrieving and adding new data
-//included get=read post=create
+
 * Must be deployed using Heroku (with data)
-// 
-* Must utilize at least one new library, package, or technology that we haven’t discussed //passport, emoji npm(food items)
+
+* Must utilize at least one new library, package, or technology that we haven’t discussed
 
 * Must have a polished front end/UI
-// needs work - html 5.net 
+
 * Must have a folder structure that meets the MVC paradigm
-// included
+
 * Must meet good quality coding standards (indentation, scoping, naming)
-// 
+
 * Must protect API keys in Node with environment variables
-// bcrypt included ~ api=json object
+
 
 ## Presentation Requirements
 
