@@ -1,0 +1,47 @@
+show dbs
+use <name of db>
+db -- shows the current db
+db.dropDatabase()
+
+show collections
+db.collection.drop()
+
+db.collection.insert()
+db.collection.insertOne()
+db.collection.insertMany()
+
+db.places.insert({"continent": "Africa", "country":"Wakanda", "majorcities": ["Birnin Zana", "Brinin T'Chaka", "Jabari Village"]})
+
+db.places.insertMany([{"continent": "Africa", "country":"Wakanda", "majorcities": ["Birnin Zana", "Brinin T'Chaka", "Jabari Village"]}, {"continent": "Europe", "country":"Sokovia", "majorcities": ["Novi Grad"]}])
+
+db.places.insertOne({"continent": "Europe", "country":"Latveria", "majorcities": ["Doomstadt", "Doomsburg", "Doomsdale"]})
+
+db.collection.find().pretty()
+
+db.places.find({"country": "Wakanda"}).pretty()
+db.places.find({"continent": "Europe"}).pretty()
+db.places.find({"continent": "Europe", country: "Latveria"}).pretty()
+db.places.find({"majorcities": ["Novi Grad"]}).pretty() --should match exactly
+db.places.find({"majorcities": ["Birnin Zana"]}).pretty()
+db.places.find({"majorcities": "Birnin Zana"}).pretty()
+db.places.find({"_id": ObjectId("5eed16fda076946e885d24fb")}).pretty()
+
+
+db.places.update({"country": "Wakanda"}, {$set: {"continent": "Asia"}})
+db.places.update({"continent": "Europe"}, {$set: {"continent": "Asia"}})
+db.places.update({"continent": "Europe"}, {$set: {"continent": "Asia"}}, {multi: true})
+db.places.update({"country": "Wakanda"}, {$push: {"majorcities": "Jambazi Compund"}})
+db.places.update({"country": "Wakanda"}, {$set: {"capital": "Birnin Zana"}})
+
+db.places.remove({"country": "Wakanda"})
+db.places.remove({})
+
+use zooDB
+db.animals.insert({"name": "Panda", "numLegs": 4, "class": "mammal", "weight": 254})
+db.animals.insert({"name": "snake", "numLegs": 0, "class": "reptile", "weight": 150})
+db.animals.insert({"name": "crow", "numLegs": 2, "class": "bird", "weight": 50})
+
+db.animals.find().sort({ numLegs: 1 });
+db.animals.find().sort({ numLegs: -1 });
+
+db.animals.find().sort({ name: 1 });

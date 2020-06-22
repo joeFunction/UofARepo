@@ -12,7 +12,7 @@ const postController = require("./controllers/post-controller");
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8081;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));

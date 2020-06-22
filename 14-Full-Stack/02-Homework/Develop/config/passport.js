@@ -1,8 +1,16 @@
+//  When a user tries to log in, we run a query in our database to see if the email exists in our system, if there is no user, we return a message to be displayed on the front end letting the user know that the provided email is incorrect.  
+
+//If the passwords do not match, we return another message to be displayed on the front end letting the user know that the provided password was incorrect. 
+
+//If the passwords do match, we use our verification function “done” to return the user that was matched.
+
+
 var passport = require("passport");
 var LocalStrategy = require("passport-local").Strategy;
 
 var db = require("../models");
 
+//we tell Passport our username field will be an email on lines 9-11
 // Telling passport we want to use a Local Strategy. In other words, we want login with a username/email and password
 passport.use(new LocalStrategy(
   // Our user will sign in using an email, rather than a "username"
@@ -34,6 +42,10 @@ passport.use(new LocalStrategy(
   }
 ));
 
+// in the Passport.js file, lines 40-42 we use Passports “serializeUser” function, which essentially keeps the user we pass in “serialized” in the session, allowing the user to navigate throughout different pages without needing to log in for every page. 
+
+//Conversely, “deserializeUser” removes the serialized user info from the session, and the next loaded page would require the user to log in again, think of this as logging out. 
+
 // In order to help keep authentication state across HTTP requests,
 // Sequelize needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
@@ -46,4 +58,5 @@ passport.deserializeUser(function(obj, cb) {
 });
 
 // Exporting our configured passport
+// export passport to use what we just configured in our routes.
 module.exports = passport;

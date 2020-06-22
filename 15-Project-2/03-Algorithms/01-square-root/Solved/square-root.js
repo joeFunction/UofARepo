@@ -3,14 +3,18 @@
 
 var sqrt = function(x) {
   for (var i = 0; i <= x; i++) {
-    var squared = i * i;
+    var squared = i * i; //3 *3 =9 , square=9 x=6
     
     if (squared === x) {
       return i;
     }
     
     if (squared > x ) {
-      return i - 1;
+      return i - 1;  //i=3 square = 9, return result is 2
     }
   }
 };
+
+
+console.log("output:",sqrt(6) ,"math.sqrt", Math.floor(Math.sqrt(6)))
+

@@ -1,0 +1,30 @@
+<h1>Day Planner</h1>
+
+<ul>
+  {{#each plans}}
+  <li>
+    <p>
+      {{id}}. {{plan}}
+
+      <button data-planid="{{id}}" class="delplan">Delete Plan!</button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
+
+<h2>Create a Plan</h2>
+<form id="createplan">
+  <textarea type="text" name="plan" id="create-plan-text"></textarea>
+  <button type="submit">Save Plan!</button>
+</form>
+
+<h2>Update a Plan</h2>
+<form id="updateplan">
+  <select name="id" id="update-select">
+    {{#each plans}}
+    <option value="{{id}}">{{plan}}</option>
+    {{/each}}
+  </select>
+  <textarea type="text" name="plan" placeholder="plan" id="update-plan-text"></textarea>
+  <button type="submit">Update Plan!</button>
+</form>

@@ -1,0 +1,14 @@
+const orm = require("./config/orm.js");
+
+orm.select("pet");
+
+orm.select("buyer");
+
+// Find all the pets ordering by the lowest price to the highest price.
+orm.selectAndOrder("animal_name", "pet", "price");
+
+// Find a pet in the pets table by an animal_name of Rachel.
+orm.selectWhere("pet", "animal_name", "Rachel");
+
+// Find the buyer with the most pets.
+orm.findWhoHasMost("buyer_name", "buyer_id", "buyer", "pet");
