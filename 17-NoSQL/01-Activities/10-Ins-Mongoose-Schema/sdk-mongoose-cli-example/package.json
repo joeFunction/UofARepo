@@ -1,5 +1,5 @@
 {
-  "name": "mongoose_populate",
+  "name": "mongoose_schema",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -12,7 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.9.19",
-    "morgan": "^1.9.1"
+    "mongoose": "^5.9.19"
+  },
+  "devDependencies": {
+    "mongoosejs-cli": "^1.0.5"
   }
 }

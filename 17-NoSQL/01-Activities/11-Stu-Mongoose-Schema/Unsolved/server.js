@@ -2,7 +2,7 @@ const express = require("express");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 const User = require("./userModel.js");
 const app = express();
@@ -14,16 +14,19 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userdb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/mongoose_userDB", { useNewUrlParser: true, useUnifiedTopology: true });
 
-app.post("/submit", ({body}, res) => {
-  User.create(body)
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+app.post("/submit", async ({body}, res) => {
+  try {
+    const data = await User.create(body);
+
+    res.json(data);
+
+  } catch (error) {
+    console.log(error);
+
+    res.send(error);
+  }
 });
 
 app.listen(PORT, () => {

@@ -17,43 +17,54 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true });
 
-db.User.create({ name: "Ernest Hemingway" })
-  .then(dbUser => {
-    console.log(dbUser);
-  })
-  .catch(({ message }) => {
-    console.log(message);
-  });
+const createUser = async () => {
+  try {
+    const data = await db.User.create({ name: "Ernest Hemingway" });
 
-app.get("/notes", (req, res) => {
-  db.Note.find({})
-    .then(dbNote => {
-      res.json(dbNote);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+createUser();
+
+app.get("/notes", async (req, res) => {
+  try {
+    const data = db.Note.find({});
+
+    res.json(data);
+
+  } catch (error) {
+    console.log(error);
+
+    res.send(error);
+  }
 });
 
-app.get("/user", (req, res) => {
-  db.User.find({})
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+app.get("/user", async (req, res) => {
+  try {
+    const data = db.User.find({});
+
+    res.json(data);
+
+  } catch (error) {
+    console.log(error);
+
+    res.send(error);
+  }
 });
 
 app.post("/submit", ({ body }, res) => {
-  db.Note.create(body)
-    .then(({ _id }) => db.User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true }))
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
+  try {
+    const { _id } = await db.Note.create(body);
+    const data = await db.User.findOneAndUpdate({}, { $push: { notes: _id } }, { new: true });
+    res.json(data);
+
+  } catch (error) {
+    console.log(error);
+
+    res.send(error);
+  }
 });
 
 app.get("/populateduser", (req, res) => {

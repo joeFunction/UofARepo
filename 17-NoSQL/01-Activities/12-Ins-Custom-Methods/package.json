@@ -1,5 +1,5 @@
 {
-  "name": "custom_methods",
+  "name": "mongoose_schema",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "mongoose": "^5.3.16",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19",
     "morgan": "^1.9.1"
   }
 }
