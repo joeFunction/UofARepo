@@ -1,0 +1,22 @@
+.navbar {
+    background: #653bb5;
+    height: 60px;
+}
+  
+.navbar ul {
+    margin: 0;
+}
+  
+.navbar li {
+    display: inline-block;
+    padding-top: 20px;
+    margin-right: 10px;
+}
+  
+.navbar a {
+    color: white;
+    font-size: 1.3rem;
+    text-decoration: none;
+    margin: 5px;
+    line-height: 3;
+}
